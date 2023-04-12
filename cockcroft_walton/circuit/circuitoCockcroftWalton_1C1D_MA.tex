@@ -1,0 +1,44 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+
+\begin{document}
+	
+	\begin{circuitikz}[american]
+		
+		% fonte de tensao
+		\draw (-1., -1.65) to [vsourcesin, l=$V_s$] (-1., 2.5);  
+		
+		% capacitor entre nó 1 e nó 2
+		\draw (-1., 2.5) to [short, *-] (0., 2.5);
+		\draw (0., 3.25) to [short] (0., 1.75);
+		\draw (0., 1.75) to [resistor, l=$R_{c_1}$] (2., 1.75);
+		\draw (2., 3.25) to [isource, l_=$J_{c_1}$] (0., 3.25);
+		\draw (2., 3.25) to [short] (2., 1.75);
+		\draw (2., 2.5) to [short, -*] (3., 2.5);
+		
+		% diodo entre nó 2 e terra
+		\draw (3., 2.5) to [short] (3., 1.5);
+		\draw (2.25, 1.5) to [short] (3.75, 1.5);
+		\draw (2.25, 1.5) to [resistor, l=$R_{d_1}$] (2.25, -0.5);
+		\draw (3.75, -0.5) to [isource, l_=$J_{d_1}$] (3.75, 1.5);
+		\draw (3.75, -0.5) to [short] (2.25, -0.5);
+		\draw (3., -0.5) to [short] (3., -1.65);
+		
+		% ramo de terra
+		\draw (-1., -1.65) to [short, -*] (1., -1.65) to [short] (3., -1.65);
+		
+		% elemento terra
+		\draw (1., -1.65) -- (1., -1.75) node[/tikz/circuitikz/bipoles/length=0.75cm, ground]{};
+		
+		% nós do circuito
+		\draw (1., -1.45) node{gr};
+		\draw (-1., 2.75) node{1};
+		\draw (3., 2.75) node{2};
+		
+	\end{circuitikz}
+	
+\end{document}

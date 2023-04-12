@@ -1,0 +1,134 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+
+\begin{document}
+	
+	\begin{circuitikz}[american]
+		
+		% fonte de tensao
+		\draw (-1., -1.65) to [vsourcesin, l=$V_s$] (-1., 2.5);  
+		
+		% capacitor entre nó 1 e nó 2
+		\draw (-1., 2.5) to [short, *-] (0., 2.5);
+		\draw (0., 3.25) to [short] (0., 1.75);
+		\draw (0., 1.75) to [resistor, l=$R_{c_1}$] (2., 1.75);
+		\draw (2., 3.25) to [isource, l_=$J_{c_1}$] (0., 3.25);
+		\draw (2., 3.25) to [short] (2., 1.75);
+		\draw (2., 2.5) to [short, -*] (3., 2.5);
+		
+		% capacitor entre nó 3 e terra
+		\draw (7., 2.5) to [short, *-] (7., 1.5);
+		\draw (6.25, 1.5) to [short] (7.75, 1.5);
+		\draw (6.25, 1.5) to [resistor, l=$R_{c_2}$] (6.25, -0.5);
+		\draw (7.75, -0.5) to [isource, l_=$J_{c_2}$] (7.75, 1.5);
+		\draw (7.75, -0.5) to [short] (6.25, -0.5);
+		\draw (7., -0.5) to [short] (7., -1.65);
+		
+		% capacitor entre nó 4 e 2
+		\draw (3., 7.5) to [short, *-] (3., 6.5);
+		\draw (2.25, 6.5) to [short] (3.75, 6.5);
+		\draw (2.25, 6.5) to [resistor, l_=$R_{c_3}$] (2.25, 4.5);
+		\draw (3.75, 4.5) to [isource, l=$J_{c_3}$] (3.75, 6.5);
+		\draw (2.25, 4.5) to [short] (3.75, 4.5);
+		\draw (3., 4.5) to [short] (3., 2.5);
+		
+		% capacitor entre nó 5 e nó 3
+		\draw (3., 12.5) to [short, -*] (8.5, 12.5);
+		\draw (8.5, 12.5) to [short] (8.5, 11.5);
+		\draw (7.75, 11.5) to [short] (9.25, 11.5);
+		\draw (7.75, 11.5) to [resistor, l_=$R_{c_4}$] (7.75, 9.5);
+		\draw (9.25, 9.5) to [isource, l=$J_{c_4}$] (9.25, 11.5);
+		\draw (7.75, 9.5) to [short] (9.25, 9.5);
+		\draw (8.5, 9.5) to [short] (8.5, 2.5) to [short] (7., 2.5);
+		
+		% capacitor entre nó 6 e nó 4
+		\draw (1., 17.5) to [short, *-] (1., 16.5);
+		\draw (0.25, 16.5) to [short] (1.75, 16.5);
+		\draw (0.25, 16.5) to [resistor, l_=$R_{c_5}$] (0.25, 14.5);
+		\draw (1.75, 14.5) to [isource, l=$J_{c_5}$] (1.75, 16.5);
+		\draw (0.25, 14.5) to [short] (1.75, 14.5);
+		\draw (1., 14.5) to [short] (1., 7.5) to [short] (3., 7.5);
+		
+		% capacitor entre nó 7 e 5
+		\draw (1., 22.5) to [short, -*] (10.5, 22.5);
+		\draw (10.5, 22.5) to [short] (10.5, 21.5);
+		\draw (9.75, 21.5) to [short] (11.25, 21.5);
+		\draw (9.75, 21.5) to [resistor, l_=$R_{c_6}$] (9.75, 19.5);
+		\draw (11.25, 19.5) to [isource, l=$J_{c_6}$] (11.25, 21.5);
+		\draw (9.75, 19.5) to [short] (11.25, 19.5);
+		\draw (10.5, 19.5) to [short] (10.5, 12.5) to [short] (8.5, 12.5);
+		
+		% diodo entre nó 2 e terra
+		\draw (3., 2.5) to [short] (3., 1.5);
+		\draw (2.25, 1.5) to [short] (3.75, 1.5);
+		\draw (2.25, 1.5) to [resistor, l=$R_{d_1}$] (2.25, -0.5);
+		\draw (3.75, -0.5) to [isource, l_=$J_{d_1}$] (3.75, 1.5);
+		\draw (3.75, -0.5) to [short] (2.25, -0.5);
+		\draw (3., -0.5) to [short] (3., -1.65);
+		
+		% diodo entre nó 2 e nó 3
+		\draw (3., 2.5) to [short] (4., 2.5);
+		\draw (4., 3.25) to [short] (4., 1.75);
+		\draw (4., 1.75) to [resistor, l=$R_{d_2}$] (6., 1.75);
+		\draw (4., 3.25) to [isource, l=$J_{d_2}$] (6., 3.25);
+		\draw (6., 3.25) to [short] (6., 1.75);
+		\draw (6., 2.5) to [short, -*] (7., 2.5);
+		
+		% diodo entre nó 3 e nó 4
+		\draw (3., 7.5) to [short] (7., 7.5);
+		\draw (7., 7.5) to [short] (7., 6.5);
+		\draw (6.25, 6.5) to [short] (7.75, 6.5);
+		\draw (6.25, 6.5) to [resistor, l_=$R_{d_3}$] (6.25, 4.5);
+		\draw (7.75, 4.5) to [isource, l=$J_{d_3}$] (7.75, 6.5);
+		\draw (6.25, 4.5) to [short] (7.75, 4.5);
+		\draw (7., 4.5) to [short] (7., 2.5);
+		
+		% diodo entre nó 4 e nó 5
+		\draw (3., 12.5) to [short] (7., 12.5);
+		\draw (3., 12.5) to [short] (3., 11.5);
+		\draw (2.25, 11.5) to [short] (3.75, 11.5);
+		\draw (2.25, 11.5) to [resistor, l_=$R_{d_4}$] (2.25, 9.5);
+		\draw (3.75, 9.5) to [isource, l=$J_{d_4}$] (3.75, 11.5);
+		\draw (2.25, 9.5) to [short] (3.75, 9.5);
+		\draw (3., 9.5) to [short] (3., 7.5);
+		
+		% diodo entre nó 5 e nó 6
+		\draw (1., 17.5) to [short] (8.5, 17.5);
+		\draw (8.5, 17.5) to [short] (8.5, 16.5);
+		\draw (7.75, 16.5) to [short] (9.25, 16.5);
+		\draw (7.75, 16.5) to [resistor, l_=$R_{d_5}$] (7.75, 14.5);
+		\draw (9.25, 14.5) to [isource, l=$J_{d_5}$] (9.25, 16.5);
+		\draw (7.75, 14.5) to [short] (9.25, 14.5);
+		\draw (8.5, 14.5) to [short] (8.5, 12.5);
+		
+		% diodo entre nó 6 e 7
+		\draw (1., 22.5) to [short] (1., 21.5);
+		\draw (0.25, 21.5) to [short] (1.75, 21.5);
+		\draw (0.25, 21.5) to [resistor, l_=$R_{d_6}$] (0.25, 19.5);
+		\draw (1.75, 19.5) to [isource, l=$J_{d_6}$] (1.75, 21.5);
+		\draw (0.25, 19.5) to [short] (1.75, 19.5);
+		\draw (1., 19.5) to [short] (1., 17.5);
+		
+		% ramo de terra
+		\draw (-1., -1.65) to [short, -*] (3., -1.65) to [short] (7., -1.65);
+		
+		% elemento terra
+		\draw (3., -1.65) -- (3., -1.75) node[/tikz/circuitikz/bipoles/length=0.75cm, ground]{};
+		
+		% nós do circuito
+		\draw (2.8, -1.45) node{gr};
+		\draw (-1., 2.75) node{1};
+		\draw (2.8, 2.75) node{2};
+		\draw (7.2, 2.75) node{3};
+		\draw (2.8, 7.75) node{4};
+		\draw (8.7, 12.75) node{5};
+		\draw (0.8, 17.75) node{6};
+		\draw (10.5, 22.75) node{7};
+		
+	\end{circuitikz}
+	
+\end{document}

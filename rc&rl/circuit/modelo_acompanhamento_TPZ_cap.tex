@@ -1,0 +1,42 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+% \title{Drawing}
+
+
+
+\begin{document}
+	
+	
+	
+	\begin{circuitikz}[american]
+		
+		\draw (-1, -1.65) to [vsource, l=$V_s$] (-1, 2.5);
+		
+		\draw (-1, 2.5) to [spst] (2, 2.5) to [short] (5, 2.5);
+		\draw (-1, -1.65) to [short, -*] (2, -1.65) to [short] (5, -1.65);
+		
+		\draw (0., 2.9) node {\small{$t = 5ms$}};
+		
+		\draw (2, -1.65) -- (2, -1.85) node[/tikz/circuitikz/bipoles/length=0.75cm, ground]{}; 
+		
+		\draw (2, 2.5) to [resistor, l_=$R_s$] (2, 0.25) to [resistor, l_=\large{$\Big(\frac{2C}{\Delta t}\Big)$}] (2, -1.65);
+		
+		\draw (5, -1.65) to [isource, l_=$\Big(\frac{2C}{\Delta t}\Big)\cdot i_{C_{n-1}} + v_{C_{n-1}}$] (5, 2.5);
+		
+		\draw (2.75, 0.2) node {\textbf{+}};
+		\draw (2.75, -1.45) node {\Large{\textbf{--}}};
+		\draw (2.75, -0.675) node {\Large{$v_{c_{n}}$}};
+		
+		\draw [-latex] (2.5, 2.75) -- (2.5, 1.25);
+		\draw (3., 2) node {\Large{$i_{C_{n}}$}};
+		
+		
+	\end{circuitikz}
+	
+	
+	
+\end{document}

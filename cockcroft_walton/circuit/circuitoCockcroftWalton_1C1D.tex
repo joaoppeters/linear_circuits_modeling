@@ -1,0 +1,34 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+
+\begin{document}
+
+\begin{circuitikz}[american]
+	
+	% fonte de tensao
+	\draw (-1., -1.65) to [vsourcesin, l=$V_s$] (-1., 2.5);
+
+	% capacitor entre nó 1 e nó 2
+	\draw (-1., 2.5) to [capacitor, *-*, l=$C_1$] (3., 2.5);
+	
+	% diodo entre nó 2 e terra
+	\draw (3., -1.65) to [diode, l_=$D_1$] (3., 2.5);
+	
+	% ramo de terra
+	\draw (-1., -1.65) to [short, -*] (1., -1.65) to [short] (3., -1.65);
+
+	% elemento terra
+	\draw (1., -1.65) -- (1., -1.75) node[/tikz/circuitikz/bipoles/length=0.75cm, ground]{};
+	
+	% nós do circuito
+	\draw (1., -1.45) node{gr};
+	\draw (-1., 2.75) node{1};
+	\draw (3., 2.75) node{2};
+
+\end{circuitikz}
+
+\end{document}

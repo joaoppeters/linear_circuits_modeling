@@ -1,0 +1,62 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+
+\begin{document}
+	
+	\begin{circuitikz}[american]
+		
+		% fonte de tensao
+		\draw (-1., -1.65) to [vsourcesin, l=$V_s$] (-1., 2.5);
+		
+		% capacitor entre nó 1 e nó 2
+		\draw (-1., 2.5) to [capacitor, *-*, l=$C_1$] (3., 2.5);
+		
+		% capacitor entre nó 3 e terra
+		\draw (7., 2.5) to [capacitor, *-, l=$C_2$] (7., -1.65);
+		
+		% capacitor entre nó 4 e nó 2
+		\draw (3., 6.5) to [capacitor, *-, l_=$C_3$] (3., 2.5);
+		
+		% capacitor entre nó 5 e nó 3
+		\draw (7., 6.5) to [capacitor, *-, l=$C_4$] (7., 2.5);
+		
+		% capacitor entre nó 6 e 4
+		\draw (3., 10.5) to [capacitor, *-, l_=$C_5$] (3., 6.5);
+		
+		% diodo entre nó 2 e terra
+		\draw (3., -1.65) to [diode, l_=$D_1$] (3., 2.5);
+		
+		% diodo entre nó 2 e nó 3
+		\draw (3., 2.5) to [diode, l=$D_2$] (7., 2.5);
+		
+		% diodo entre nó 3 e nó 4
+		\draw (7., 2.5) to [diode, l=$D_3$] (3., 6.5);
+		
+		% diodo entre nó 4 e nó 5
+		\draw (3., 6.5) to [diode, l=$D_4$] (7., 6.5);
+		
+		% diodo entre nó 5 e nó 6
+		\draw (7., 6.5) to [diode, l=$D_5$] (3., 10.5);
+		
+		% ramo de terra
+		\draw (-1., -1.65) to [short, -*] (3., -1.65) to [short] (7., -1.65);
+		
+		% elemento terra
+		\draw (3., -1.65) -- (3., -1.75) node[/tikz/circuitikz/bipoles/length=0.75cm, ground]{};
+		
+		% nós do circuito
+		\draw (2.8, -1.45) node{gr};
+		\draw (-1., 2.75) node{1};
+		\draw (2.8, 2.75) node{2};
+		\draw (7.2, 2.75) node{3};
+		\draw (2.8, 6.75) node{4};
+		\draw (7.2, 6.75) node{5};
+		\draw (3., 10.75) node{6};
+		
+	\end{circuitikz}
+	
+\end{document}

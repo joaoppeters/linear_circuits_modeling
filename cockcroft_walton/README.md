@@ -1,0 +1,1 @@
+![CockcroftWalton](/circuit/circuitoCockcroftWalton_FULL.pdf)
