@@ -1,3 +1,3 @@
-![RCCircuit](./circuit/modelo_acompanhamento_TPZ_cap.pdf)
+![RCCircuit](./circuit/modelo_acompanhamento_TPZ_cap.png)
 
-![RLCircuit](./circuit/modelo_acompanhamento_TPZ_ind.pdf)
+![RLCircuit](./circuit/modelo_acompanhamento_TPZ_ind.png)
