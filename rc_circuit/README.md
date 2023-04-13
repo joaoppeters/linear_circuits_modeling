@@ -1,1 +1,1 @@
-![RCCircuit](/figures/circuito_RCp.png)
+![RCCircuit](./figures/circuito_RCp.png)
