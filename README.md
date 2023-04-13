@@ -1,4 +1,5 @@
-# Linear Circuit Modeling focusing on Static Converters Simulation
+# Linear Circuit Modeling 
+## Emphasis on Static Converters Simulation
 
 This repo contains the simulations of different linear circuits topologies.
 
